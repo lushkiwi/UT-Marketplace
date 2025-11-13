@@ -3,7 +3,7 @@ import { Inter, Roboto_Flex } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/globals/Navbar";
 import { AuthProvider } from './context/AuthContext';
-import { CryptoProvider } from './contexts/CryptoContext';
+import { CryptoProvider } from './context/CryptoContext';
 import FooterWrapper from "../components/globals/FooterWrapper";
 import AdminRedirectWrapper from "../components/layout/AdminRedirectWrapper";
 

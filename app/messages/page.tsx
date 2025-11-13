@@ -2,7 +2,7 @@
 import { useEffect, useState, useCallback, Suspense } from "react";
 import { motion } from "framer-motion";
 import { useAuth } from "../context/AuthContext";
-import { useCrypto } from "../contexts/CryptoContext";
+import { useCrypto } from "../context/CryptoContext";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ConversationList } from "./components/ConversationList";
 import { ChatWindow } from "./components/ChatWindow";

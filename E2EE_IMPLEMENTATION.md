@@ -14,7 +14,7 @@ This document explains the complete End-to-End Encryption (E2EE) implementation 
 
 1. **Encryption Library** (`app/lib/encryption.ts`)
 2. **Key Management Service** (`app/lib/database/KeyService.ts`)
-3. **Crypto Context** (`app/contexts/CryptoContext.tsx`)
+3. **Crypto Context** (`app/context/CryptoContext.tsx`)
 4. **Updated MessageService** with encryption/decryption
 5. **Updated Messages Page** to use encryption
 6. **Provider Setup** in root layout
@@ -134,7 +134,7 @@ const keys = await ensureUserHasKeys("user-123", "password");
 
 ---
 
-### 3. **`app/contexts/CryptoContext.tsx`** - React Context for Keys
+### 3. **`app/context/CryptoContext.tsx`** - React Context for Keys
 
 **What it does:**
 - Stores decrypted private key in memory during user session
@@ -509,7 +509,7 @@ const { data, error } = await supabase.auth.signInWithPassword({
 
 // AFTER (with E2EE):
 import { getUserKeysDecrypted, ensureUserHasKeys } from '@/app/lib/database/KeyService';
-import { useCrypto } from '@/app/contexts/CryptoContext';
+import { useCrypto } from '@/app/context/CryptoContext';
 
 const { data, error } = await supabase.auth.signInWithPassword({
   email,
@@ -552,7 +552,7 @@ if (data.user) {
 await supabase.auth.signOut();
 
 // AFTER:
-import { useCrypto } from '@/app/contexts/CryptoContext';
+import { useCrypto } from '@/app/context/CryptoContext';
 
 const { clearKeys } = useCrypto();
 await supabase.auth.signOut();
@@ -696,7 +696,7 @@ If you have questions about:
 |-----------|--------|----------|
 | Encryption Library | ✅ Complete | `app/lib/encryption.ts` |
 | Key Management | ✅ Complete | `app/lib/database/KeyService.ts` |
-| Crypto Context | ✅ Complete | `app/contexts/CryptoContext.tsx` |
+| Crypto Context | ✅ Complete | `app/context/CryptoContext.tsx` |
 | MessageService | ✅ Updated | `app/lib/database/MessageService.ts` |
 | Messages Page | ✅ Updated | `app/messages/page.tsx` |
 | Layout Provider | ✅ Complete | `app/layout.tsx` |
